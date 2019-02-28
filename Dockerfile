@@ -1,5 +1,5 @@
 FROM php:7.1.7-fpm-alpine
-LABEL maintainer "Giuseppe Iannelli <giuseppe.iannelli@mosaicoon.com>"
+LABEL mantainer "Giuseppe Iannelli <dev@giuseppeiannelli.it>"
 LABEL description "php-fpm image with exif,gd,mcrypt,mysqli,mongodb,pcntl,pdo_mysql,rdkafka,redis,ssh,soap,sockets,zip modules and composer"
 
 ### CUSTOM ENVIRONMENTS ###
