@@ -1,14 +1,23 @@
 #!/bin/sh
 set -e
 
+custom_php_config(){
+	echo "Set custom php configurations"
+	$(which envsubst) < /docker/config/conf.d/app.ini > /usr/local/etc/php/conf.d/app.ini
+}
+
 # first arg is `-f` or `--some-option`
 if [ "${1#-}" != "$1" ]; then
+	custom_php_config
 	set -- php-fpm "$@"
 else
 
-	echo "Set custom php configurations"
-	envsubst < /docker/configurations/php/conf.d/app.ini > /usr/local/etc/php/conf.d/app.ini
+	if [ $1 == "php-fpm" ]
+	then
+		custom_php_config
+	fi
 
-	exec "$@"
-
+	echo "CMD: $@"
 fi
+
+exec "$@"
