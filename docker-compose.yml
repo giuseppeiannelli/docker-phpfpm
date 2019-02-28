@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  php-fpm:
+    image: giuseppeiannelli/docker-phpfpm:7.2
+    container_name: php-fpm
+    ports:
+      - 80:80
+  nginx:
+    image: giuseppeiannelli/nginx-for-phpfpm:php-fpm
+    container_name: nginx
+    environment:
+      NGINX_FPM_LISTEN: 127.0.0.1:9000
+    network_mode: service:php-fpm
+    volumes_from: 
+      - php-fpm

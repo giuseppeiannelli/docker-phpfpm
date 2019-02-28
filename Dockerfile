@@ -100,6 +100,7 @@ RUN chmod +x /usr/local/bin/docker-php-entrypoint
 
 #set workdir
 WORKDIR ${APP_CWD}
+VOLUME [ "${APP_CWD}" ]
 
 ENTRYPOINT ["/usr/local/bin/docker-php-entrypoint"]
 CMD ["php-fpm"]
