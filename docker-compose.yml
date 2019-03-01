@@ -2,7 +2,7 @@ version: '2'
 
 services:
   php-fpm:
-    image: giuseppeiannelli/docker-phpfpm:7.2
+    image: giuseppeiannelli/phpfpm:7.2
     container_name: php-fpm
     ports:
       - 80:80
