@@ -7,7 +7,7 @@ services:
     ports:
       - 80:80
   nginx:
-    image: giuseppeiannelli/nginx:php-fpm
+    image: giuseppeiannelli/nginx:phpfpm
     container_name: nginx
     environment:
       NGINX_FPM_LISTEN: 127.0.0.1:9000
